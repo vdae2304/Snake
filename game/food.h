@@ -1,10 +1,14 @@
 #ifndef FOOD_H_INCLUDED
 #define FOOD_H_INCLUDED
 
+class AI;
+
 class Food {
-    private:
+    protected:
         int x, y;
         default_random_engine generator;
+
+        friend class AI;
 
     public:
         // Inicializa la comida.

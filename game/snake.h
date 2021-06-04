@@ -1,10 +1,11 @@
 #ifndef SNAKE_H_INCLUDED
 #define SNAKE_H_INCLUDED
 
+class AI;
 class Food;
 
 class Snake {
-    private:
+    protected:
         struct node {
             int x, y;
             node *next;
@@ -19,6 +20,7 @@ class Snake {
         node *head, *tail;
         int direction, length;
 
+        friend class AI;
         friend class Food;
 
     public:
@@ -109,8 +111,7 @@ class Snake {
             }
             // ¡La serpiente se salió de la pantalla!
             if (
-                (new_x < MIN_X || new_x > MAX_X ||
-                 new_y < MIN_Y || new_y > MAX_Y)
+                new_x < MIN_X || new_x > MAX_X || new_y < MIN_Y || new_y > MAX_Y
             ) {
                 return false;
             }

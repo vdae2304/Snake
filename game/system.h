@@ -5,6 +5,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <iostream>
+#include <queue>
 #include <random>
 #include <windows.h>
 using namespace std;
@@ -16,7 +17,7 @@ const int WIDTH = 90;
 // Esquina superior izquierda y esquina inferior derecha del área de juego.
 const int MIN_X = 1;
 const int MIN_Y = 2;
-const int MAX_X = WIDTH - 2;
+const int MAX_X = WIDTH - 3;
 const int MAX_Y = HEIGHT - 2;
 
 // Teclas.
@@ -26,6 +27,7 @@ const int KEY_RIGHT = 77;
 const int KEY_UP = 72;
 const int KEY_DOWN = 80;
 const int KEY_ENTER = 13;
+const int KEY_ESC = 27;
 
 // Devuelve la tecla presionada (si se presionó alguna).
 int get_key_pressed() {

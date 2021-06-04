@@ -3,13 +3,31 @@
 
 class Game {
     public:
-        // Imprime la pantalla de título y espera a que el jugador pulse
-        // ENTER.
-        static void displayTitleScreen() {
+        // Imprime la pantalla de título. Devuelve la opción escogida por el
+        // jugador: 0 - Nuevo Juego, 1 - Demostración y 2 - Tabla de
+        // puntuaciones.
+        static int displayTitleScreen() {
             load_screen("screen/title.bin");
-            while (get_key_pressed() != KEY_ENTER) {
-                ;
-            }
+
+            int option = 0;
+            int key_pressed;
+            do {
+                key_pressed = get_key_pressed();
+                switch (key_pressed) {
+                    case KEY_UP:
+                        print_at_position(28, 16 + 2*option, " ", false);
+                        option = (option + 2) % 3;
+
+                        break;
+                    case KEY_DOWN:
+                        print_at_position(28, 16 + 2*option, " ", false);
+                        option = (option + 1) % 3;
+                        break;
+                }
+                print_at_position(28, 16 + 2*option, ">", false);
+            } while (key_pressed != KEY_ENTER);
+
+            return option;
         }
 
         // Crea una nueva partida y devuelve la puntuación obtenida.
