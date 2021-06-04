@@ -17,7 +17,6 @@ class Game {
                     case KEY_UP:
                         print_at_position(28, 16 + 2*option, " ", false);
                         option = (option + 2) % 3;
-
                         break;
                     case KEY_DOWN:
                         print_at_position(28, 16 + 2*option, " ", false);
