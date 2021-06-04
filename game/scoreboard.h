@@ -14,7 +14,7 @@ class Scoreboard {
                 this->score = 0;
             }
 
-            Entry(char *player, unsigned int score) {
+            Entry(const char *player, unsigned int score) {
                 strcpy(this->player, player);
                 this->score = score;
             }
